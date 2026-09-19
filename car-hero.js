@@ -24,5 +24,5 @@ function apply(){
  if(promoImgs[1]) promoImgs[1].src=HERO;
  if(promoImgs[2]) promoImgs[2].src=DETAIL;
 }
-if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',apply); else apply();
+if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',()=>{apply(); if(window.render && !/\/index\.html?$/.test(location.pathname)) window.render();}); else {apply(); if(window.render && !/\/index\.html?$/.test(location.pathname)) window.render();}
 })();
