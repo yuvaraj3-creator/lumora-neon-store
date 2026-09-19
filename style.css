@@ -37,7 +37,7 @@ html[data-theme="dark"] .newsletter{border-color:#29292d}
 html[data-theme="dark"] .newsletter input{background:#0b0b0d;color:#fff}
 html[data-theme="dark"] .razorpay{background:#ff1e2d!important;border-color:#ff1e2d!important;color:#fff!important}
 
-.cinematic-banner{position:relative;min-height:320px;margin:0 0 34px;border:1px solid #29292d;border-radius:14px;overflow:hidden;display:flex;align-items:flex-end;padding:34px;background:linear-gradient(90deg,rgba(0,0,0,.86),rgba(0,0,0,.15)),url("data:image/webp;base64,") center/cover no-repeat,#0b0b0d}
+.cinematic-banner{position:relative;min-height:320px;margin:0 0 34px;border:1px solid #29292d;border-radius:14px;overflow:hidden;display:flex;align-items:flex-end;padding:34px;background:linear-gradient(90deg,rgba(0,0,0,.86),rgba(0,0,0,.15)),#0b0b0d}
 .cinematic-banner:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 72% 50%,rgba(255,30,45,.22),transparent 34%),linear-gradient(0deg,rgba(0,0,0,.55),transparent 55%);pointer-events:none}
 .cinematic-banner>div{position:relative;z-index:2;display:grid;gap:7px}
 .cinematic-banner span{font-size:11px;font-weight:900;letter-spacing:.22em;color:#ff1e2d}
