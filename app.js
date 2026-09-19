@@ -35,6 +35,18 @@ async function startPayment(items){
       prefill:{name:document.querySelector('input[name="fullName"]')?.value||'',email:document.querySelector('input[name="email"]')?.value||'',contact:document.querySelector('input[name="phone"]')?.value||''},
       theme:{color:'#ff1e2d'},
       method:{upi:true,card:true,netbanking:true,wallet:true},
+      config:{
+        display:{
+          blocks:{
+            upi:{name:'UPI',instruments:[{method:'upi'}]},
+            cards:{name:'Cards',instruments:[{method:'card'}]},
+            netbanking:{name:'Netbanking',instruments:[{method:'netbanking'}]},
+            wallets:{name:'Wallets',instruments:[{method:'wallet'}]}
+          },
+          sequence:['block.upi','block.cards','block.netbanking','block.wallets'],
+          preferences:{show_default_blocks:false}
+        }
+      },
       handler:async response=>{
         try{
           const verifyRes=await fetch('/api/verify-payment',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({razorpay_order_id:response.razorpay_order_id,razorpay_payment_id:response.razorpay_payment_id,razorpay_signature:response.razorpay_signature,amount})});
