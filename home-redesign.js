@@ -3,22 +3,22 @@
 
   const oldHero = document.querySelector('.main-media img');
   const oldThumbs = [...document.querySelectorAll('.thumb img')].map(x => x.src);
-  const HERO = oldHero?.src || oldThumbs[1] || 'assets/bmw_red.webp';
-  const DETAIL = oldThumbs[1] || oldThumbs[0] || 'assets/demon-eye.jpg';
+  const HERO = window.LUMORA_GTI_HERO || oldHero?.src || oldThumbs[1] || 'assets/bmw_red.webp';
+  const DETAIL = window.LUMORA_GTI_LIGHT || oldThumbs[1] || oldThumbs[0] || 'assets/demon-eye.jpg';
 
   const products = [
-    ['LIGHTING','Brighten Your Journey','assets/demon-eye.jpg','shop.html'],
-    ['WHEELS','Performance Meets Style','assets/bmw_red.webp','shop.html'],
-    ['INTERIORS','Details That Matter','assets/bmw_white.webp','shop.html'],
-    ['EXHAUST','Sound Your Attitude','assets/demon-eye.jpg','shop.html'],
-    ['EXTERIORS','Make A Statement','assets/bmw_red.webp','shop.html']
+    ['GTI FRONT','Red Performance','GTI_HEAD','shop.html'],
+    ['GTI LIGHTS','Signature LED Eyes','GTI_LIGHT','shop.html'],
+    ['NIGHT DRIVE','Midnight Presence','GTI_HEAD','shop.html'],
+    ['DETAILS','Close-Up Precision','GTI_LIGHT','shop.html'],
+    ['LUMORA BUILD','Red & Black Attitude','GTI_HEAD','shop.html']
   ];
 
   const cars = [
-    ['Demon Eye Headlights','assets/demon-eye.jpg'],
-    ['Red Performance','assets/bmw_red.webp'],
-    ['White Signature','assets/bmw_white.webp'],
-    ['Neon Green','assets/bmw_green.webp']
+    ['Red GTI — Midnight','GTI_HEAD'],
+    ['GTI Headlight Detail','GTI_LIGHT'],
+    ['Red Performance Build','GTI_HEAD'],
+    ['Signature LED Eyes','GTI_LIGHT']
   ];
 
   const css = document.createElement('style');
@@ -50,8 +50,9 @@
   `;
   document.head.appendChild(css);
 
-  const catHTML = products.map(([a,b,img,href]) => `<a class="lum-cat" href="${href}"><img src="${img}" alt="${a}"><div class="lum-cat-copy"><b>${a}</b><small>${b}</small><em>→</em></div></a>`).join('');
-  const cardHTML = cars.map(([name,img],i) => `<article class="lum-card"><div class="lum-card-media"><img src="${img}" alt="${name}"></div><div class="lum-card-body"><small>FEATURED ${String(i+1).padStart(2,'0')}</small><h3>${name}</h3><p>Premium automotive lighting collection</p></div></article>`).join('');
+  const resolveImg = key => key === 'GTI_LIGHT' ? DETAIL : HERO;
+  const catHTML = products.map(([a,b,img,href]) => `<a class="lum-cat" href="${href}"><img src="${resolveImg(img)}" alt="${b}"><div class="lum-cat-copy"><b>${a}</b><small>${b}</small><em>→</em></div></a>`).join('');
+  const cardHTML = cars.map(([name,img],i) => `<article class="lum-card"><div class="lum-card-media"><img src="${resolveImg(img)}" alt="${name}"></div><div class="lum-card-body"><small>FEATURED ${String(i+1).padStart(2,'0')}</small><h3>${name}</h3><p>Premium automotive lighting collection</p></div></article>`).join('');
 
   document.body.innerHTML = `
     <header class="lum-nav">
@@ -64,12 +65,12 @@
         <img class="lum-hero-bg" src="${HERO}" alt="Red performance car at night">
         <div class="lum-red-glow"></div>
         <div class="lum-copy">
-          <div class="lum-kicker">DRIVE THE EXTRAORDINARY</div>
-          <h1>STYLE<br><span>IGNITES</span></h1>
-          <p>Premium automotive lifestyle essentials for those who live differently.</p>
+          <div class="lum-kicker">VOLKSWAGEN GTI • NIGHT EDITION</div>
+          <h1>RED<br><span>IGNITES</span></h1>
+          <p>Sharp LED eyes. Glossy red performance. A LUMORA build made to own the night.</p>
           <a class="lum-cta" href="shop.html">SHOP NOW <span>→</span></a>
         </div>
-        <div class="lum-side-note">More<br>Than<br>A Drive</div>
+        <div class="lum-side-note">More<br>Than<br>A Drive<br><small>GTI EDITION</small></div>
         <div class="lum-trust">
           <div class="item"><span>◇</span><div><b>PREMIUM</b><small>QUALITY</small></div></div>
           <div class="item"><span>▣</span><div><b>FAST & SECURE</b><small>DELIVERY</small></div></div>
