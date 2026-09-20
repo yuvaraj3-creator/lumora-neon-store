@@ -1,15 +1,15 @@
 (() => {
   if (location.pathname !== '/' && !location.pathname.endsWith('/index.html')) return;
 
-  const HERO = 'assets/lumora-car-front.svg';
-  const DETAIL = 'assets/neon-red.svg';
+  const HERO = window.LUMORA_GTI_HERO || 'assets/lumora-car-front.svg';
+  const DETAIL = window.LUMORA_GTI_LIGHT || 'assets/neon-red.svg';
   const colors = [
-    ['Red','#ff1e2d','none'],
-    ['Blue','#168cff','hue-rotate(205deg) saturate(1.45) brightness(1.08)'],
-    ['White','#fff','grayscale(1) brightness(1.65)'],
-    ['Amber','#ffb000','hue-rotate(38deg) saturate(1.5) brightness(1.15)'],
-    ['Green','#18e66b','hue-rotate(105deg) saturate(1.5) brightness(1.05)'],
-    ['Purple','#a238ff','hue-rotate(275deg) saturate(1.65) brightness(1.05)']
+    ['Red','#ff1e2d',HERO],
+    ['Blue','#168cff',HERO],
+    ['White','#fff',HERO],
+    ['Amber','#ffb000',HERO],
+    ['Green','#18e66b',HERO],
+    ['Purple','#a238ff',HERO]
   ];
   const models = [
     ['BMW 3 Series','BMW 3 Series F30 / F31 / F34'],
@@ -67,7 +67,7 @@
     document.querySelectorAll('.lum-color,.lum-thumb').forEach(x=>x.classList.remove('active'));
     document.querySelectorAll('[data-color="'+color+'"]').forEach(x=>x.classList.add('active'));
     const map={red:'none',blue:'hue-rotate(205deg) saturate(1.45) brightness(1.08)',white:'grayscale(1) brightness(1.65)',amber:'hue-rotate(38deg) saturate(1.5) brightness(1.15)',green:'hue-rotate(105deg) saturate(1.5) brightness(1.05)',purple:'hue-rotate(275deg) saturate(1.65) brightness(1.05)'};
-    const hero=document.querySelector('.lum-hero-bg'); if(hero) hero.style.filter='saturate(1.08) contrast(1.08)';
+    const hero=document.querySelector('.lum-hero-bg'); if(hero) hero.style.filter='saturate(1.08) contrast(1.08) '+(map[color]&&map[color]!=='none'?map[color]:'');
   };
   try{const c=JSON.parse(localStorage.getItem('lumoraCart')||'[]');const e=document.getElementById('lumCount');if(e)e.textContent=c.reduce((s,x)=>s+(x.q||0),0)}catch{}
 })();
