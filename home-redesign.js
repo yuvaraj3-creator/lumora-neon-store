@@ -3,6 +3,7 @@
 
   const HERO = window.LUMORA_GTI_HERO || 'assets/lumora-car-front.svg';
   const DETAIL = window.LUMORA_GTI_LIGHT || 'assets/neon-red.svg';
+  const HERO_FALLBACK = 'assets/lumora-car-front.svg';
   const colors = [
     ['Red','#ff1e2d',HERO],
     ['Blue','#168cff',HERO],
@@ -63,6 +64,26 @@
       </section>
     </main>`;
 
+  const heroImage=document.querySelector('.lum-hero-bg');
+  if(heroImage){
+    heroImage.addEventListener('error',()=>{
+      if(heroImage.dataset.fallbackApplied!=='1'){
+        heroImage.dataset.fallbackApplied='1';
+        heroImage.src=HERO_FALLBACK;
+      }
+    });
+    heroImage.setAttribute('loading','eager');
+    heroImage.setAttribute('fetchpriority','high');
+    heroImage.src=HERO;
+  }
+  document.querySelectorAll('.lum-thumb img,.lum-color-img img,.lum-model-img img').forEach(img=>{
+    img.addEventListener('error',()=>{
+      if(img.dataset.fallbackApplied!=='1'){
+        img.dataset.fallbackApplied='1';
+        img.src=HERO_FALLBACK;
+      }
+    });
+  });
   window.lumoraColor=(el,color)=>{
     document.querySelectorAll('.lum-color,.lum-thumb').forEach(x=>x.classList.remove('active'));
     document.querySelectorAll('[data-color="'+color+'"]').forEach(x=>x.classList.add('active'));
