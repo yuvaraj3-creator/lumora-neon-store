@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520">
+<defs>
+ <radialGradient id="bg"><stop stop-color="#18e66b" stop-opacity=".18"/><stop offset="1" stop-color="#050505" stop-opacity="0"/></radialGradient>
+ <linearGradient id="glass" x1="0" x2="1"><stop stop-color="#111"/><stop offset=".5" stop-color="#18e66b" stop-opacity=".18"/><stop offset="1" stop-color="#020202"/></linearGradient>
+ <filter id="glow"><feGaussianBlur stdDeviation="10" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<rect width="900" height="520" fill="#050505"/>
+<ellipse cx="450" cy="270" rx="390" ry="210" fill="url(#bg)"/>
+<path d="M95 330 C150 190 275 105 450 100 C625 105 750 190 805 330 L755 390 C610 420 290 420 145 390 Z" fill="#08090b" stroke="#25252b" stroke-width="5"/>
+<path d="M150 315 C210 190 310 145 450 140 C590 145 690 190 750 315 C650 355 250 355 150 315Z" fill="url(#glass)" stroke="#45454b" stroke-width="4"/>
+<g fill="none" stroke="#18e66b" filter="url(#glow)" stroke-linecap="round">
+ <path d="M245 265 C285 190 380 175 425 225 C445 248 445 280 425 305 C380 355 285 340 245 265Z" stroke-width="16"/>
+ <path d="M655 265 C615 190 520 175 475 225 C455 248 455 280 475 305 C520 355 615 340 655 265Z" stroke-width="16"/>
+ <path d="M275 266 C305 225 355 215 382 243 C397 259 397 273 382 289 C355 317 305 307 275 266Z" stroke="#78ffac" stroke-width="8"/>
+ <path d="M625 266 C595 225 545 215 518 243 C503 259 503 273 518 289 C545 317 595 307 625 266Z" stroke="#78ffac" stroke-width="8"/>
+</g>
+<path d="M180 370 Q450 440 720 370" fill="none" stroke="#18e66b" stroke-opacity=".35" stroke-width="3"/>
+<text x="450" y="465" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="24" font-weight="700" letter-spacing="7">LUMORA • NEON FRONT LIGHT</text>
+</svg>
