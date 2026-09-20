@@ -118,3 +118,8 @@ html[data-theme="dark"] .product-card .btn{width:100%;margin-top:10px}
  html[data-theme="dark"] .hero-thumbs .thumbs{grid-template-columns:repeat(3,1fr)}
  html[data-theme="dark"] .neon-thumbs .thumb{height:72px}
 }
+
+
+/* Mobile header alignment: keep cart and menu at the far right */
+.nav-actions{margin-left:auto;flex-shrink:0;align-items:center}
+@media(max-width:850px){.nav-actions{margin-left:auto}.cart-icon,.menu-btn{flex-shrink:0}}
