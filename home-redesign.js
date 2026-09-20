@@ -1,8 +1,8 @@
 (() => {
   if (location.pathname !== '/' && !location.pathname.endsWith('/index.html')) return;
 
-  const HERO = window.LUMORA_GTI_HERO || document.querySelector('.main-media img')?.src || '';
-  const DETAIL = window.LUMORA_GTI_LIGHT || HERO;
+  const HERO = 'assets/lumora-car-front.svg';
+  const DETAIL = 'assets/neon-red.svg';
   const colors = [
     ['Red','#ff1e2d','none'],
     ['Blue','#168cff','hue-rotate(205deg) saturate(1.45) brightness(1.08)'],
@@ -45,8 +45,8 @@
   `;
   document.head.appendChild(css);
 
-  const colorCards=colors.map(([name,glow,filter],i)=>`<button class="lum-color ${i===0?'active':''}" data-color="${name.toLowerCase()}" style="--glow:${glow}" onclick="window.lumoraColor(this,'${name.toLowerCase()}')"><div class="lum-color-img"><img src="${DETAIL}" style="filter:${filter}" alt="${name} neon front light"></div><div class="lum-color-label">${name}<div class="lum-color-line"></div></div></button>`).join('');
-  const thumbs=colors.map(([name,,filter],i)=>`<button class="lum-thumb ${i===0?'active':''}" data-color="${name.toLowerCase()}" onclick="window.lumoraColor(this,'${name.toLowerCase()}')"><img src="${DETAIL}" style="filter:${filter}" alt="${name}"></button>`).join('');
+  const colorCards=colors.map(([name,glow,src],i)=>`<button class="lum-color ${i===0?'active':''}" data-color="${name.toLowerCase()}" style="--glow:${glow}" onclick="window.lumoraColor(this,'${name.toLowerCase()}')"><div class="lum-color-img"><img src="${src}" alt="${name} neon front light"></div><div class="lum-color-label">${name}<div class="lum-color-line"></div></div></button>`).join('');
+  const thumbs=colors.map(([name,,src],i)=>`<button class="lum-thumb ${i===0?'active':''}" data-color="${name.toLowerCase()}" onclick="window.lumoraColor(this,'${name.toLowerCase()}')"><img src="${src}" alt="${name}"></button>`).join('');
   const modelCards=models.map(([name,sub])=>`<a class="lum-model" href="shop.html"><div class="lum-model-img"><img src="${HERO}" alt="${name}"></div><div class="lum-model-body"><small>${sub}</small><b>${name}</b><span>NEON FRONT LIGHT →</span></div></a>`).join('');
 
   document.body.innerHTML=`
