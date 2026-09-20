@@ -123,3 +123,20 @@ html[data-theme="dark"] .product-card .btn{width:100%;margin-top:10px}
 /* Mobile header alignment: keep cart and menu at the far right */
 .nav-actions{margin-left:auto;flex-shrink:0;align-items:center}
 @media(max-width:850px){.nav-actions{margin-left:auto}.cart-icon,.menu-btn{flex-shrink:0}}
+
+
+/* FINAL MOBILE HEADER FIX */
+@media(max-width:850px){
+  .nav{position:sticky;display:flex;align-items:center;justify-content:flex-start;overflow:visible}
+  .nav .logo{flex:0 1 auto;min-width:0}
+  .nav .nav-actions{position:absolute;right:14px;top:50%;transform:translateY(-50%);display:flex!important;align-items:center;justify-content:flex-end;gap:8px;margin:0!important;width:auto!important}
+  .nav .cart-icon,.nav .menu-btn{display:grid!important;width:40px;height:40px;flex:0 0 40px}
+  .nav .menu-btn{place-items:center}
+  .nav .links,.nav .nav-search{display:none!important}
+}
+@media(max-width:380px){
+  .nav{padding-left:12px;padding-right:12px}
+  .nav .nav-actions{right:12px;gap:5px}
+  .nav .cart-icon,.nav .menu-btn{width:38px;height:38px;flex-basis:38px}
+  .nav .logo{font-size:18px}
+}
