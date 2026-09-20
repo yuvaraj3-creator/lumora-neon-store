@@ -55,3 +55,66 @@ html[data-theme="dark"] .two{gap:22px}
   html[data-theme="dark"] .gallery{grid-template-columns:1fr}
   html[data-theme="dark"] .gallery img{height:300px}
 }
+
+
+/* LUMORA neon product showcase */
+html[data-theme="dark"] .hero-neon{
+  position:relative;min-height:590px;border:1px solid #2a2a2f;border-radius:16px;overflow:hidden;
+  display:grid;grid-template-columns:.9fr 1.5fr;align-items:center;
+  background:radial-gradient(circle at 78% 48%,rgba(255,30,45,.18),transparent 30%),linear-gradient(90deg,#050505 0%,#09090b 42%,#050505 100%);
+  box-shadow:0 25px 70px rgba(0,0,0,.45);
+}
+html[data-theme="dark"] .hero-copy{position:relative;z-index:3;padding:50px 20px 50px 54px;max-width:560px}
+html[data-theme="dark"] .hero-copy h1{font-size:clamp(44px,5.2vw,78px);line-height:.88;letter-spacing:-.055em;margin:15px 0;color:#fff}
+html[data-theme="dark"] .hero-copy h1 span{color:#ff1e2d}
+html[data-theme="dark"] .hero-copy p{font-size:16px;line-height:1.7;color:#aaa;max-width:470px}
+html[data-theme="dark"] .hero-features{display:flex;gap:14px;flex-wrap:wrap;margin:28px 0}
+html[data-theme="dark"] .hero-features span{font-size:11px;color:#ddd;border:1px solid #34343a;border-radius:999px;padding:10px 13px;background:#0b0b0d}
+html[data-theme="dark"] .hero-cta{min-width:150px}
+html[data-theme="dark"] .hero-car{height:100%;min-height:590px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+html[data-theme="dark"] .hero-car:after{content:"";position:absolute;inset:auto 0 0;height:38%;background:linear-gradient(transparent,#050505);pointer-events:none}
+html[data-theme="dark"] .hero-car img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transform:scale(1.04)}
+html[data-theme="dark"] .hero-car .best{z-index:4}
+html[data-theme="dark"] .hero-car .expand{z-index:4}
+html[data-theme="dark"] .hero-thumbs{padding:14px 0 6px}
+html[data-theme="dark"] .hero-thumbs .thumbs{margin-top:0;grid-template-columns:repeat(6,1fr)}
+html[data-theme="dark"] .neon-thumbs .thumb{height:92px;background:#09090b;border-color:#2c2c31}
+html[data-theme="dark"] .neon-thumbs .thumb .neon-visual{height:100%}
+html[data-theme="dark"] .neon-thumbs .thumb .neon-visual img{height:100%;object-fit:cover}
+html[data-theme="dark"] .neon-thumbs .thumb.active{border-color:#ff1e2d;box-shadow:0 0 22px rgba(255,30,45,.25)}
+html[data-theme="dark"] .color-showcase{padding-top:30px}
+html[data-theme="dark"] .neon-colors{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+html[data-theme="dark"] .neon-colors .color-option{position:relative;overflow:hidden;border:1px solid #2d2d32;border-radius:12px;background:#0b0b0d;padding:0;color:#fff;box-shadow:0 10px 28px rgba(0,0,0,.25);transition:.25s}
+html[data-theme="dark"] .neon-colors .color-option:hover{transform:translateY(-4px);border-color:#555}
+html[data-theme="dark"] .neon-colors .color-option.selected{border-color:#ff1e2d;box-shadow:0 0 26px rgba(255,30,45,.2)}
+html[data-theme="dark"] .neon-colors .color-option>span{display:block;padding:12px 8px 14px;font-weight:800;font-size:12px}
+html[data-theme="dark"] .neon-visual{position:relative;overflow:hidden;background:#050505;isolation:isolate}
+html[data-theme="dark"] .neon-visual:after{content:"";position:absolute;inset:15% 15%;background:var(--neon-glow);filter:blur(28px);opacity:.24;mix-blend-mode:screen;z-index:-1}
+html[data-theme="dark"] .neon-visual img{width:100%;height:100%;object-fit:cover;display:block}
+html[data-theme="dark"] .neon-colors .neon-visual{height:150px}
+html[data-theme="dark"] .legacy-product{margin-top:45px}
+html[data-theme="dark"] .main-media{--neon-glow:#ff1e2d;box-shadow:0 18px 55px rgba(0,0,0,.5),0 0 35px color-mix(in srgb,var(--neon-glow) 18%,transparent)}
+html[data-theme="dark"] .product-card .product-visual{position:relative;aspect-ratio:1.55;overflow:hidden;background:#09090b}
+html[data-theme="dark"] .product-card .product-visual img{width:100%;height:100%;object-fit:cover;display:block}
+html[data-theme="dark"] .product-card .product-glow{position:absolute;inset:auto 10% 7%;height:25%;background:#ff1e2d;filter:blur(25px);opacity:.14;pointer-events:none}
+html[data-theme="dark"] .product-card{transition:transform .25s,border-color .25s}
+html[data-theme="dark"] .product-card:hover{transform:translateY(-5px);border-color:#444}
+html[data-theme="dark"] .product-card .tag{font-size:9px;letter-spacing:.08em;color:#ff5963;font-weight:900}
+html[data-theme="dark"] .product-card h3{font-size:18px;margin:8px 0}
+html[data-theme="dark"] .product-card .body{padding:18px}
+html[data-theme="dark"] .product-card .btn{width:100%;margin-top:10px}
+@media(max-width:900px){
+ html[data-theme="dark"] .hero-neon{grid-template-columns:1fr;min-height:auto}
+ html[data-theme="dark"] .hero-copy{padding:38px 24px 18px}
+ html[data-theme="dark"] .hero-car{min-height:420px}
+ html[data-theme="dark"] .neon-colors{grid-template-columns:repeat(3,1fr)}
+ html[data-theme="dark"] .hero-thumbs .thumbs{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:600px){
+ html[data-theme="dark"] .hero-copy h1{font-size:43px}
+ html[data-theme="dark"] .hero-car{min-height:310px}
+ html[data-theme="dark"] .neon-colors{grid-template-columns:repeat(2,1fr)}
+ html[data-theme="dark"] .neon-colors .neon-visual{height:125px}
+ html[data-theme="dark"] .hero-thumbs .thumbs{grid-template-columns:repeat(3,1fr)}
+ html[data-theme="dark"] .neon-thumbs .thumb{height:72px}
+}
