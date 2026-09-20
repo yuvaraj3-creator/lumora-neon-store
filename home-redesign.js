@@ -1,16 +1,17 @@
 (() => {
   if (location.pathname !== '/' && !location.pathname.endsWith('/index.html')) return;
 
-  const HERO = window.LUMORA_GTI_HERO || 'assets/lumora-car-front.svg';
-  const DETAIL = window.LUMORA_GTI_LIGHT || 'assets/neon-red.svg';
-  const HERO_FALLBACK = 'assets/lumora-car-front.svg';
+  const HERO = 'assets/gti-garage.jpg';
+  const NIGHT = 'assets/gti-night.jpg';
+  const DETAIL = 'assets/gti-headlight.jpg';
+  const HERO_FALLBACK = NIGHT;
   const colors = [
     ['Red','#ff1e2d',HERO],
-    ['Blue','#168cff',HERO],
-    ['White','#fff',HERO],
-    ['Amber','#ffb000',HERO],
+    ['Blue','#168cff',NIGHT],
+    ['White','#fff',DETAIL],
+    ['Amber','#ffb000',NIGHT],
     ['Green','#18e66b',HERO],
-    ['Purple','#a238ff',HERO]
+    ['Purple','#a238ff',DETAIL]
   ];
   const models = [
     ['BMW 3 Series','BMW 3 Series F30 / F31 / F34'],
@@ -48,7 +49,7 @@
 
   const colorCards=colors.map(([name,glow,src],i)=>`<button class="lum-color ${i===0?'active':''}" data-color="${name.toLowerCase()}" style="--glow:${glow}" onclick="window.lumoraColor(this,'${name.toLowerCase()}')"><div class="lum-color-img"><img src="${src}" alt="${name} neon front light"></div><div class="lum-color-label">${name}<div class="lum-color-line"></div></div></button>`).join('');
   const thumbs=colors.map(([name,,src],i)=>`<button class="lum-thumb ${i===0?'active':''}" data-color="${name.toLowerCase()}" onclick="window.lumoraColor(this,'${name.toLowerCase()}')"><img src="${src}" alt="${name}"></button>`).join('');
-  const modelCards=models.map(([name,sub])=>`<a class="lum-model" href="shop.html"><div class="lum-model-img"><img src="${HERO}" alt="${name}"></div><div class="lum-model-body"><small>${sub}</small><b>${name}</b><span>NEON FRONT LIGHT →</span></div></a>`).join('');
+  const modelCards=models.map(([name,sub])=>`<a class="lum-model" href="shop.html"><div class="lum-model-img"><img src="${NIGHT}" alt="${name}"><div class="lum-model-body"><small>${sub}</small><b>${name}</b><span>NEON FRONT LIGHT →</span></div></a>`).join('');
 
   document.body.innerHTML=`
     <header class="lum-nav"><a class="lum-logo" href="index.html">LUMORA<small>LIGHTS THAT LOOK BACK</small></a><nav class="lum-links"><a class="active" href="index.html">Home</a><a href="shop.html">Shop</a><a href="car-models.html">Collections</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav><div class="lum-actions"><a href="shop.html">⌕</a><a href="contact.html">♙</a><a class="lum-cart" href="cart.html">♧<i id="lumCount">0</i></a></div></header>
